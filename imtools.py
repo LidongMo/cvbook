@@ -42,7 +42,7 @@ def compute_average(imlist):
       avg += numpy.array(Image.open(name))
       count += 1
     except:
-      print name + '...skipped'
+      print(name + '...skipped')
   avg /= count
   return numpy.array(avg, 'uint8')
 
