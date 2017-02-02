@@ -68,6 +68,10 @@ def get_descriptors(image, filtered_coords, wid=5):
 
 def ncc(patch1, patch2):
   """Returns normalized cross-correlation between two patches."""
+   
+  """this line below could solve the error 'numpy: Invalid value encountered in true_divide'"""
+  numpy.seterr(invalid='ignore')
+  
   d1 = (patch1 - numpy.mean(patch1)) / numpy.std(patch1)
   d2 = (patch2 - numpy.mean(patch2)) / numpy.std(patch2)
   return numpy.sum(d1 * d2) / (len(patch1) - 1)
